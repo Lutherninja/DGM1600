@@ -28,6 +28,8 @@ public class StoryScript : MonoBehaviour {
 			State_outside ();
 		} else if (myState == States.look) {
 			State_look ();
+		} else if (myState == States.viking) {
+			State_viking ();
 		}
 	}
 
@@ -62,7 +64,7 @@ public class StoryScript : MonoBehaviour {
 			"\nyou also see a viking standing over a man rasing an axe" +
 			"\n\nPress 'E' to escape" +
 			"\nPress 'V' to engage the viking" +
-			"\nPress 'T' to throw your stone for distraction and attempt to save the man";
+			"\nPress 'T' to throw your stone for distraction and attempt to save the";
 		} else if (stone == false) {
 			textObject.text = "You rush outside and you see vikings making waste of your village." +
 			"\nOff to your left you see a small clearing in the woods you could use to escape" +
@@ -73,6 +75,7 @@ public class StoryScript : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.E)) {
 			myState = States.woods;
 		} else if (Input.GetKeyDown (KeyCode.V)) {
+			myState = States.viking;
 		}
 
 		}
@@ -113,5 +116,18 @@ public class StoryScript : MonoBehaviour {
 		} else if (Input.GetKeyDown (KeyCode.R)) {
 			myState = States.main_room;
 		}
+	}
+
+	void State_viking() {
+		if (wood == true && stone == true) {
+			textObject.text = "You sneak up behind the viking and jam the wooden stick into his lower knee, the viking drops. You now have an opening" +
+			"\n\nPress 'S' to throw your stone at the viking" +
+			"\nPress 'P' to punch the viking" +
+			"\nPress 'R' to grab the man and run";
+		} else if (wood == false)
+			textObject.text = "You sneak up behind the viking and grab him. He spins loosening your grip and takes a swipe with his axe cutting deep into your side." +
+			"\nYou lie there bleeding out, as you see the axe fall on the man you tried to save." +
+			"\n\nGAME OVER" +
+			"\nPress 'R' to restart";
 	}
 }

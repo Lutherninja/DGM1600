@@ -18,6 +18,13 @@ public class StoryScript : MonoBehaviour {
 		myState = States.start;
 
 	}
+	void Reset () {
+		wood = false;
+		stone = false;
+
+			
+	
+	}
 
 	void Update () {
 		if (myState == States.start) {

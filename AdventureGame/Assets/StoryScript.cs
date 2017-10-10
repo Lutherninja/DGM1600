@@ -7,7 +7,7 @@ public class StoryScript : MonoBehaviour {
 
 	public Text textObject;
 
-	public enum States {start, bedroom, main_room, outside, look, woods, viking };
+	public enum States {start, bedroom, main_room, outside, look, woods, viking, punch, running, escape };
 	public States myState;
 
 	public bool wood = false;
@@ -37,6 +37,12 @@ public class StoryScript : MonoBehaviour {
 			State_look ();
 		} else if (myState == States.viking) {
 			State_viking ();
+		} else if (myState == States.woods) {
+			State_woods ();
+		} else if (myState == States.escape) {
+			State_escape ();
+		} else if (myState == States.punch) {
+			State_punch ();
 		}
 	}
 
@@ -77,42 +83,46 @@ public class StoryScript : MonoBehaviour {
 			"\nOff to your left you see a small clearing in the woods you could use to escape" +
 			"\nyou also see a viking standing over a man rasing an axe" +
 			"\n\nPress 'E' to escape" +
-			"\nPress 'V' to engage the viking";
+			"\nPress 'V' to engage the viking" +
+			"\nPress 'R' to go back to main room";
 		}
 		if (Input.GetKeyDown (KeyCode.E)) {
 			myState = States.woods;
 		} else if (Input.GetKeyDown (KeyCode.V)) {
 			myState = States.viking;
+		} else if (Input.GetKeyDown (KeyCode.E)) {
+			myState = States.woods;
+		} else if (Input.GetKeyDown (KeyCode.R)) {
+			myState = States.main_room;
 		}
-
-		}
+	}
 	
 	void State_look (){
 		if (wood == true && stone == false) {
 			textObject.text = "Looking at the room and the unturned furniture you notice a small stone on the floorthat looks unfamiliar" +
 			"\n\nPress 'S' to pick up stone" +
 			"\nYou have taken the wood" +
-			"\nPress 'o' to go outside" +
+			"\nPress 'O' to go outside" +
 			"\nPress 'R' to go back to the main room";
 		} else if (stone == true && wood == false) {
 			textObject.text = "Looking at the room and the unturned furniture you notice a small stone on the floorthat looks unfamiliar" +
 			"\n\nYou have taken the stone" +
 			"\nPress 'W' to pick up wood" +
-			"\nPress 'o' to go outside" +
+			"\nPress 'O' to go outside" +
 			"\nPress 'R' to go back to the main room";
 		} else if (wood == true && stone == true) {
 			textObject.text = "Looking at the room and the unturned furniture you notice a small stone on the floorthat looks unfamiliar" +
 				"\n\nYou have taken the stone" +
 				"\nYou have taken the wood" +
-				"\nPress 'o' to go outside" +
+				"\nPress 'O' to go outside" +
 				"\nPress 'R' to go back to the main room";
 		} else if (wood == false && stone == false) {
 			textObject.text = "Looking at the room and the unturned furniture you move towards a table and notice a small stone on the floorthat looks unfamiliar" +
-		"\nAmong the flipped wooden furniture you find a sharp piece of wood" +
-		"\n\nPress 'S' to pick up stone" +
-		"\nPress 'W' to pick up the wood" +
-		"\nPress 'o' to go outside" +
-		"\nPress 'R' to go back to main room";
+			"\nAmong the flipped wooden furniture you find a sharp piece of wood" +
+			"\n\nPress 'S' to pick up stone" +
+			"\nPress 'W' to pick up the wood" +
+			"\nPress 'O' to go outside" +
+			"\nPress 'R' to go back to the main room";
 		}
 		if (Input.GetKeyDown (KeyCode.O)) {
 			myState = States.outside;
@@ -125,16 +135,46 @@ public class StoryScript : MonoBehaviour {
 		}
 	}
 
-	void State_viking() {
+	void State_viking () {
 		if (wood == true && stone == true) {
 			textObject.text = "You sneak up behind the viking and jam the wooden stick into his lower knee, the viking drops. You now have an opening" +
-			"\n\nPress 'S' to throw your stone at the viking" +
-			"\nPress 'P' to punch the viking" +
+			"\n\nPress 'P' to punch the viking" +
 			"\nPress 'R' to grab the man and run";
-		} else if (wood == false)
+		} else if (wood == false) {
 			textObject.text = "You sneak up behind the viking and grab him. He spins loosening your grip and takes a swipe with his axe cutting deep into your side." +
 			"\nYou lie there bleeding out, as you see the axe fall on the man you tried to save." +
-			"\n\nGAME OVER" +
-			"\nPress 'R' to restart";
+			"\n\nGAME OVER";
+		} else if (Input.GetKeyDown (KeyCode.E)) {
+			Reset ();
+		} else if (Input.GetKeyDown (KeyCode.P)) {
+			myState = States.punch;
+		}
 	}
+
+	void State_woods () {
+		textObject.text = "You see a small clearing in the woods that you use to avoid being seen by the Viking." +
+		"\nYou live your new life in the forest providing for yourself. You are a survivor." +
+		"\n\nYOU WIN";
+	}
+	void State_punch () {
+		if (stone == true) {
+			textObject.text = "You grip the stone in your hand and swing forward with all your might, making a connection with the side of the Viking's head. The Viking drops." +
+			"\nThe man expresses his gratitude" +
+			"\n\nPress E to escape";
+		} else if (stone == false) {
+			textObject.text = "You swing your fist with all the strength you can muster and catch the viking in the back of the head." +
+			"\nthe viking stumbles forward and turns swinging his axe slicing into your stomach." +
+			"\nYou lie there bleeding out as you watch the viking swing his axe down on the man" +
+			"\n\nGAME OVER";
+		} else if (Input.GetKeyDown (KeyCode.E)) {
+			myState = States.escape;
+		}
+
+	}
+	void State_escape () {
+		textObject.text = "You help the man up and you both make a break for the forest bordering the village." +
+			"\nYou made a clean escape and saved the mans life. You are a hero." +
+			"\n\nYOU WIN";
+	}
+		
 }

@@ -208,12 +208,33 @@ Prefab:
     - target: {fileID: 114711068990431776, guid: 253876c6d84ff4a4ca36f9e235087320,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 24
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114711068990431776, guid: 253876c6d84ff4a4ca36f9e235087320,
         type: 2}
       propertyPath: m_FontData.m_Alignment
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114711068990431776, guid: 253876c6d84ff4a4ca36f9e235087320,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c8404bf264b55474e96e874c6a16cacc,
+        type: 3}
+    - target: {fileID: 114711068990431776, guid: 253876c6d84ff4a4ca36f9e235087320,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114711068990431776, guid: 253876c6d84ff4a4ca36f9e235087320,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114711068990431776, guid: 253876c6d84ff4a4ca36f9e235087320,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.33793116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 253876c6d84ff4a4ca36f9e235087320, type: 2}
@@ -268,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.33793116, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -276,8 +297,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_Font: {fileID: 12800000, guid: c8404bf264b55474e96e874c6a16cacc, type: 3}
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -387,6 +408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textObject: {fileID: 327485591}
   myState: 0
+  wood: 0
+  stone: 0
 --- !u!4 &671105666
 Transform:
   m_ObjectHideFlags: 0
@@ -543,7 +566,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.28676468, g: 0.28676468, b: 0.28676468, a: 0}
+  m_BackGroundColor: {r: 0.09558821, g: 0.09558821, b: 0.09558821, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

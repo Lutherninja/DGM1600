@@ -101,6 +101,7 @@
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
 'Assets/Scripts/floor.cs'
+'Assets/Scripts/health.cs'
 'Assets/Scripts/LevelManager.cs'
 'Assets/Scripts/MusicManager.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'

@@ -7,7 +7,7 @@ public class StoryScript : MonoBehaviour {
 
 	public Text textObject;
 
-	public enum States {start, bedroom, main_room, outside, look, woods, viking, punch, running, escape };
+	public enum States {start, bedroom, main_room, outside, look, woods, viking, punch, running, escape, distract };
 	public States myState;
 
 	public bool wood = false;
@@ -43,6 +43,10 @@ public class StoryScript : MonoBehaviour {
 			State_escape ();
 		} else if (myState == States.punch) {
 			State_punch ();
+		} else if (myState == States.distract) {
+			State_distract ();
+		} else if (myState == States.running) {
+			State_running ();
 		}
 	}
 
@@ -77,7 +81,7 @@ public class StoryScript : MonoBehaviour {
 			"\nyou also see a viking standing over a man rasing an axe" +
 			"\n\nPress 'E' to escape" +
 			"\nPress 'V' to engage the viking" +
-			"\nPress 'T' to throw your stone for distraction and attempt to save the";
+			"\nPress 'T' to throw your stone to distract the viking";
 		} else if (stone == false) {
 			textObject.text = "You rush outside and you see vikings making waste of your village." +
 			"\nOff to your left you see a small clearing in the woods you could use to escape" +
@@ -94,6 +98,8 @@ public class StoryScript : MonoBehaviour {
 			myState = States.woods;
 		} else if (Input.GetKeyDown (KeyCode.R)) {
 			myState = States.main_room;
+		} else if (Input.GetKeyDown (KeyCode.T)) {
+			myState = States.distract;
 		}
 	}
 	
@@ -144,7 +150,8 @@ public class StoryScript : MonoBehaviour {
 			textObject.text = "You sneak up behind the viking and grab him. He spins loosening your grip and takes a swipe with his axe cutting deep into your side." +
 			"\nYou lie there bleeding out, as you see the axe fall on the man you tried to save." +
 			"\n\nGAME OVER";
-		} else if (Input.GetKeyDown (KeyCode.E)) {
+		} 
+		if (Input.GetKeyDown (KeyCode.E)) {
 			Reset ();
 		} else if (Input.GetKeyDown (KeyCode.P)) {
 			myState = States.punch;
@@ -160,13 +167,14 @@ public class StoryScript : MonoBehaviour {
 		if (stone == true) {
 			textObject.text = "You grip the stone in your hand and swing forward with all your might, making a connection with the side of the Viking's head. The Viking drops." +
 			"\nThe man expresses his gratitude" +
-			"\n\nPress E to escape";
+			"\n\nPress E to escape with the man";
 		} else if (stone == false) {
 			textObject.text = "You swing your fist with all the strength you can muster and catch the viking in the back of the head." +
 			"\nthe viking stumbles forward and turns swinging his axe slicing into your stomach." +
 			"\nYou lie there bleeding out as you watch the viking swing his axe down on the man" +
 			"\n\nGAME OVER";
-		} else if (Input.GetKeyDown (KeyCode.E)) {
+		} 
+		if (Input.GetKeyDown (KeyCode.E)) {
 			myState = States.escape;
 		}
 
@@ -176,5 +184,24 @@ public class StoryScript : MonoBehaviour {
 			"\nYou made a clean escape and saved the mans life. You are a hero." +
 			"\n\nYOU WIN";
 	}
-		
+	void State_distract () {
+		textObject.text = "You throw your stone and the viking looks around, not certain where the sound had come from." +
+			"\nNows your chance!" +
+			"\n\nPress 'V' to engage viking" +
+			"\nPress 'R' to run away with the man";
+		if (Input.GetKeyDown (KeyCode.V)) {
+			myState = States.viking;
+		} else if (Input.GetKeyDown (KeyCode.R)) {
+			myState = States.running;
+		}
+
+	}	
+	void State_running () {
+		textObject.text = "You grab the man and run twards the woods, the Viking spins furiously unsure of what is going on" +
+			"\nYou enter the woods and are out of sight before the Viking can chase you" +
+			"\nThe man expresses his gratitude and you live your lives traveling and providing for yourselves. You are a hero" +
+			"\n\nYOU WIN";
+	
+	}
 }
+

@@ -7,13 +7,15 @@ public class Health : MonoBehaviour {
 	public int health;
 
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	void OnCollisionEnter2D (Collision2D collider){
 	
-	// Update is called once per frame
-	void Update () {
-		
+		health--;
+
+		if (health <= 0) {
+			Destroy (this.gameObject);
+		}
+
+
+
 	}
 }

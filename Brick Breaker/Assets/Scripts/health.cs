@@ -22,10 +22,9 @@ public class Health : MonoBehaviour {
 	
 		if (health <= 0) {
 			Destroy (this.gameObject);
-			levelManager.UpdateBrickCount ();
+			LevelManager.brickCount--;
+			levelManager.CheckBrickCount ();
 		}
 		GetComponent<SpriteRenderer> ().sprite = picture[count];
-
-
 	}
 }

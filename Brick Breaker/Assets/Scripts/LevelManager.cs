@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-	private int brickCount;
+	public static int brickCount;
 
 
 	void Start(){
@@ -30,8 +30,7 @@ public class LevelManager : MonoBehaviour {
 
 	
 	}
-	public void UpdateBrickCount () {
-		brickCount = FindObjectsOfType<Health> ().Length;
+	public void CheckBrickCount () {
 		if (brickCount <= 0) {
 			LoadNextLevel ();
 		}

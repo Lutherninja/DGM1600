@@ -15,7 +15,6 @@ public class Ball : MonoBehaviour {
 	void Start () {
 		paddleToBallVector = this.transform.position - paddle.transform.position;
 		rigid = this.GetComponent<Rigidbody2D> ();
-		print ("rigid");
 
 	}
 	

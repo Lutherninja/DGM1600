@@ -4,8 +4,13 @@ using UnityEngine;
 
 	public class PlayerController : MonoBehaviour
 	{
-		public float moveSpeed = 10f;
-		public float turnSpeed = 50f;
+
+
+	public float moveSpeed = 10f;
+	public float turnSpeed = 50f;
+	public GameObject projectile;
+	public Transform shotPos;
+	public float shotForce;
 
 
 		void Update ()
@@ -21,5 +26,11 @@ using UnityEngine;
 
 			if(Input.GetKey(KeyCode.D))
 				transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+
+		if (Input.GetButtonUp ("Fire1")) 
+		{
+			GameObject shot = Instantiate (projectile, shotPos.position, shotPos.rotation) as GameObject;
+			//shotPos.AddForce(shotPos.forward = shot(Force);
+		}
 	}
 }

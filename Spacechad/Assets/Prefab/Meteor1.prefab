@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788855202006918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.48, y: 2.55, z: 0}
+  m_LocalPosition: {x: -4.39, y: 3.17, z: 0}
   m_LocalScale: {x: 0.41506952, y: 0.41506952, z: 0.41506952}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,7 +71,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1788855202006918}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 16eec5d04747547a5818caa02c4ce0bd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

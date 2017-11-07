@@ -30,7 +30,8 @@ using UnityEngine;
 		if (Input.GetButtonUp ("Fire1")) 
 		{
 			GameObject shot = Instantiate (projectile, shotPos.position, shotPos.rotation) as GameObject;
-			//shotPos.AddForce(shotPos.forward = shot(Force);
+			shot.GetComponent<Rigidbody2D> ().AddForce (shotPos.up * shotForce);
+			//shotPos.AddForce(shotPos.forward * shot(Force);
 		}
 	}
 }

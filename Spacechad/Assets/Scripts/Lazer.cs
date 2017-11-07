@@ -16,7 +16,8 @@ public class Lazer : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
-		transform.Translate (Vector3.up * Speed * Time.deltaTime);
+		//transform.Translate (Vector3.up * Speed * Time.deltaTime);
+
 
 
 	}

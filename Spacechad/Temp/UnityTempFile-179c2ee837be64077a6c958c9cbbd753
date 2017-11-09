@@ -101,7 +101,8 @@
 -define:UNITY_EDITOR_OSX
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
-'Assets/Lazer.cs'
+'Assets/Follow.cs'
+'Assets/Scripts/Lazer.cs'
 'Assets/Scripts/LevelManager.cs'
 'Assets/Scripts/Meteor.cs'
 'Assets/Scripts/MusicManager.cs'

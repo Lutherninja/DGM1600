@@ -6,18 +6,26 @@ using UnityEngine;
 	{
 
 
-	public float moveSpeed = 10f;
+	public float moveSpeed;
 	public GameObject projectile;
 	public Transform shotPos;
 	public float shotForce;
+	public int health;
+	public ParticleSystem Thruster;
 
 	public float clockwise = 500.0f;
 	public float counterClockwise = -500.0f;
 
+	void Start ()
+	{
+	}
+
+
 		void Update ()
-		{
+		{ // figure out how to use force to move the ship. Use linear drag to fine tune the drag of the ship to slow it down.
 		if (Input.GetKey (KeyCode.W)) {
 			transform.Translate (Vector3.up * moveSpeed * Time.deltaTime);
+			Thruster.Emit (11);
 		}
 		if (Input.GetKey (KeyCode.S)) {
 			transform.Translate (-Vector3.up * moveSpeed * Time.deltaTime);
@@ -41,5 +49,16 @@ using UnityEngine;
 			shot.GetComponent<Rigidbody2D> ().AddForce (shotPos.up * shotForce);
 			//shotPos.AddForce(shotPos.forward * shot(Force);
 		}
+
+		
+			switch (health) {
+				case 1: //do stuff; break; each case is like an if statement
+				case 2:
+				default:
+					break;
+
+				}
+
+
 	}
 }

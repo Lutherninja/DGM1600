@@ -8,7 +8,7 @@ public class Follow : MonoBehaviour {
 	public float zOffset;
 
 	void Update () {
-		Vector3 myPos = objectToFollow.position;
+		Vector3 myPos = objectToFollow.position;   //
 
 		myPos.z = zOffset;
 	

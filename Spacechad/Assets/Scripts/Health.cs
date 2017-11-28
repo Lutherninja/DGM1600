@@ -10,10 +10,10 @@ public class Health : MonoBehaviour {
 
 public void IncrementHealth(int damage) {
 		
-	health <+ damage;
+	health + damage;
 	if(health <= 0) {
 		Destroy (gameObject);
-		Instantiate (explosionEffect, transform.ImagePosition, Quaternion,identity);
+		Instantiate (explosionEffect, transform.ImagePosition, Quaternion.identity);
 	   	}
 	}
 }

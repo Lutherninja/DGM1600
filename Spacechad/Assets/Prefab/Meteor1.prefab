@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4825028945973822}
   - component: {fileID: 212662144788176424}
   - component: {fileID: 50324623655641954}
+  - component: {fileID: 114726384970941900}
   - component: {fileID: 114332041610113738}
   - component: {fileID: 60898983997556380}
   m_Layer: 0
@@ -125,6 +126,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSpin: 1
+--- !u!114 &114726384970941900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788855202006918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a50ab0140a8541009e34f7c85a78a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 1
+  explosionEffect: {fileID: 1769950221891398, guid: 62ab39ba7960a4325ae712d1590b89b3,
+    type: 2}
 --- !u!212 &212662144788176424
 SpriteRenderer:
   m_ObjectHideFlags: 1

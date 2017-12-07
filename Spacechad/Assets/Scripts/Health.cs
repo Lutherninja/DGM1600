@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 
-	public int health;
+	public const int maxHealth = 1;
+	public int currentHealth = maxHealth;
 	public GameObject explosionEffect;
 		
 
-public void IncrementHealth(int damage) {
+	public void TakeDamage(int amount)
+	{
+		currentHealth -= amount;
+		if (currentHealth  <= 0) 
 		
-	health + damage;
-	if(health <= 0) {
-		Destroy (gameObject);
-		Instantiate (explosionEffect, transform.ImagePosition, Quaternion.identity);
-	   	}
+		{
+			currentHealth = 0;
+			Debug.Log ("Dead!");
+			Destroy (gameObject);
+			Instantiate (explosionEffect, transform.position, Quaternion.identity);
+		}
 	}
 }

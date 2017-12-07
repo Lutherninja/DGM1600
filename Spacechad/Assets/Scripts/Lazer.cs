@@ -7,8 +7,16 @@ public class Lazer : MonoBehaviour {
 	public float lifetime;
 	public float Speed;
 	public int health;
+	public AudioSource audio;
+	public GameObject skin;
 
 
+
+	void Start(){
+		audio.pitch = Random.Range (1f,1.5f);
+	
+
+	}
 
 	void Update () {
 
@@ -22,17 +30,27 @@ public class Lazer : MonoBehaviour {
 
 
 	}
-	void OnCollisionEnter2D (Collision2D collider) {
-		health--;
+	//void OnCollisionEnter2D (Collision2D collider) {
+		//health--;
 
 
-		if (health <= 0) {
-			Destroy (this.gameObject);
+		//if (health <= 0) {
+		//	Destroy (this.gameObject);
 		
+		//}
+	
+	//}
+	void OnCollisionEnter2D(Collision2D collision){
+	
+		var hit = collision.gameObject;
+		var health = hit.GetComponent<Health>();
+		if (health != null)
+		{
+			health.TakeDamage(1);
 		}
 	
-	}
 
+	}
 
 }
 

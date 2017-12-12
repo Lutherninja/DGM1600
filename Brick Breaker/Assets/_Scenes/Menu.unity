@@ -1152,7 +1152,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.44852942, g: 0.44852942, b: 0.44852942, a: 0}
+  m_BackGroundColor: {r: 0.21896629, g: 0.5151831, b: 0.66176474, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1230,11 +1230,6 @@ Prefab:
     - target: {fileID: 4525941135810806, guid: d8b2a6bcd99b743b692988082acf8da1, type: 2}
       propertyPath: m_RootOrder
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114404593922153596, guid: d8b2a6bcd99b743b692988082acf8da1,
-        type: 2}
-      propertyPath: health
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1224159842843186, guid: d8b2a6bcd99b743b692988082acf8da1, type: 2}
       propertyPath: m_Name
